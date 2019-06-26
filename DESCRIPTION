@@ -1,0 +1,17 @@
+Package: dataCheckR
+Type: Package
+Title: Functions And Routines For Comparing And Checking Datasets
+Version: 0.1.0
+Author: Toby Monk
+Maintainer: Toby Monk <toby.monk@teamgoldflame.com>
+Description: Numerous helper functions which are helpful when comparing two or more datasets or when performing checks on the dataset. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  tidyr,
+  dplyr,
+  ggplot2,
+  tibble,
+Depends:
+  R (>= 3.6.0)
