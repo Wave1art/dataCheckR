@@ -3,7 +3,10 @@
 \name{compareRows}
 \alias{compareRows}
 \title{CompareRows
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8782dccad6360afc027eafe7ad395da17ac7f2f4
 Function to do matched row based comparison between files without any preceding transformation to the data to be compared. This is in contrast to the function compareDimensions which first aggegates both tables over a common set of dimensions.}
 \usage{
 compareRows(table1, table2, commonKey, testColumn, testType, testTolerance)
@@ -17,7 +20,10 @@ compareRows(table1, table2, commonKey, testColumn, testType, testTolerance)
 }
 \description{
 CompareRows
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8782dccad6360afc027eafe7ad395da17ac7f2f4
 Function to do matched row based comparison between files without any preceding transformation to the data to be compared. This is in contrast to the function compareDimensions which first aggegates both tables over a common set of dimensions.
 }
 \seealso{
