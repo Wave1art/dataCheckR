@@ -108,11 +108,10 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
   }
 
   #print summary for the user working in interactive mode
-  message(paste0('Comparison of to tables to ensure consistency across common DIMENSIONS',
+  message(paste0('Compared two tables over common dimensions: ', paste0(commonColumns, collapse = ', '),
+                 '\nFields tested: ', paste0(columnsToTest, collapse = ', '),
                  '\nOverall status of tests: ', if(length(summary.failed >= 1 )){'Failed'} else{'Passed'},
-                 '\n\nDimensions compared: ', cat(commonColumns, sep = ', '),
-                 '\nFields tested: ', cat( columnsToTest, sep = ', '),
-                 '\n\nThe following fields failed: ', cat(summary.failed, sep = ',')
+                 '\n\nThe following fields failed: ', paste0(summary.failed, collapse = ', ')
   ))
 
   #Return output objects
