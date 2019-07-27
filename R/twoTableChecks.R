@@ -94,7 +94,7 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
       mutate(!! varname.test := abs(.data[[varname.diff]]) <= tolerance)
 
     #add to summary objects which will be accessible after the test is run
-    if( sum(df.compare %>% select(.data[[varname.test]]) %>% pull(1) == nrow(df.compare))){
+    if( sum(df.compare %>% select(.data[[varname.test]]) %>% pull(1) < nrow(df.compare))){
       #all rows passed
       summary.list = c(summary.list, paste0(i, ': Pass'))
       summary.passed = c(summary.passed, i)
