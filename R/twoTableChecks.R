@@ -66,8 +66,8 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
   #Prepare dataset by aggregating each to a common level of detail
   aggregatedColumnNames = expand.grid(columnsToTest, names(columnAggregations)) %>% unite(., 'out', sep = '_') %>% pull(out)
 
-  table1.agg = table1 %>% group_by_at(commoncolumns, add = F) %>% summarise_at(columntsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_orig'))
-  table2.agg = table2 %>% group_by_at(commoncolumns, add = F) %>% summarise_at(columntsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_new'))
+  table1.agg = table1 %>% group_by_at(commonColumns, add = F) %>% summarise_at(columntsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_orig'))
+  table2.agg = table2 %>% group_by_at(commonColumns, add = F) %>% summarise_at(columntsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_new'))
 
 
   #Basic checks of the datasets
