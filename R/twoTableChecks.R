@@ -66,8 +66,8 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
   #Prepare dataset by aggregating each to a common level of detail
   aggregatedColumnNames = expand.grid(columnsToTest, names(columnAggregations)) %>% unite(., 'out', sep = '_') %>% pull(out)
 
-  table1.agg = table1 %>% group_by_at(commonColumns, add = F) %>% summarise_at(columnsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_orig'))
-  table2.agg = table2 %>% group_by_at(commonColumns, add = F) %>% summarise_at(columnsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_new'))
+  table1.agg = table1 %>% group_by_at(commonColumns, add = F) %>% summarise_at(columnsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~paste0( ., '_orig'))
+  table2.agg = table2 %>% group_by_at(commonColumns, add = F) %>% summarise_at(columnsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~paste0( ., '_new'))
 
   #Basic checks of the datasets
   #ToDo - check that all unique elements in each dimension are represented in both dataets, that combinations of dimensions appear in both datasets. If not any lower level checks will most certainly fail.
@@ -90,7 +90,7 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
 
     #do the comparisons and add the extra columns
     df.compare = df.compare %>%
-      mutate(!! varname,diff := .data[[var.new]] - .data[[var.orig]]) %>%
+      mutate(!! varname.diff := .data[[var.new]] - .data[[var.orig]]) %>%
       mutate(!! varname.test := abs(.data[[varname.diff]]) <= toleranvce)
 
     #add to summary objects which will be accessible after the test is run
