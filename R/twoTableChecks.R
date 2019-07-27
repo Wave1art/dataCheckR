@@ -91,7 +91,7 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
     #do the comparisons and add the extra columns
     df.compare = df.compare %>%
       mutate(!! varname.diff := .data[[var.new]] - .data[[var.orig]]) %>%
-      mutate(!! varname.test := abs(.data[[varname.diff]]) <= toleranvce)
+      mutate(!! varname.test := abs(.data[[varname.diff]]) <= tolerance)
 
     #add to summary objects which will be accessible after the test is run
     if( sum(df.compare %>% select(.data[[varname.test]]) %>% pul(1) == nrow(df.compare))){
