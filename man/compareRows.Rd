@@ -2,12 +2,7 @@
 % Please edit documentation in R/twoTableChecks.R
 \name{compareRows}
 \alias{compareRows}
-\title{CompareRows
-<<<<<<< HEAD
-
-=======
->>>>>>> 8782dccad6360afc027eafe7ad395da17ac7f2f4
-Function to do matched row based comparison between files without any preceding transformation to the data to be compared. This is in contrast to the function compareDimensions which first aggegates both tables over a common set of dimensions.}
+\title{CompareRows}
 \usage{
 compareRows(table1, table2, commonKey, testColumn, testType, testTolerance)
 }
@@ -19,11 +14,6 @@ compareRows(table1, table2, commonKey, testColumn, testType, testTolerance)
 \item{testTolerance}{A string or vector specifying the tolerance that should be applied for each tested column}
 }
 \description{
-CompareRows
-<<<<<<< HEAD
-
-=======
->>>>>>> 8782dccad6360afc027eafe7ad395da17ac7f2f4
 Function to do matched row based comparison between files without any preceding transformation to the data to be compared. This is in contrast to the function compareDimensions which first aggegates both tables over a common set of dimensions.
 }
 \seealso{

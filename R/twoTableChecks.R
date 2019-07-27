@@ -1,6 +1,6 @@
 #This file contains all checks of two or more datasets.
 
-#' @title CompareRows
+#' CompareRows
 #'
 #' Function to do matched row based comparison between files without any preceding transformation to the data to be compared. This is in contrast to the function compareDimensions which first aggegates both tables over a common set of dimensions.
 #'
@@ -9,8 +9,9 @@
 #' @param commonKey A string or vector which specify the field(s) which should be used to join rows in between the two tables. The key must be unique in both tables to avoid problems.
 #' @param testType A string or vector specifying the type of test to be performmed on each field. Currently supports "numeric"
 #' @param testTolerance A string or vector specifying the tolerance that should be applied for each tested column
+#'
 #' @seealso compareDimensions
-
+#' @export
 compareRows = function(table1, table2, commonKey, testColumn, testType, testTolerance){
 
   #ToDo: check for duplicates in either of the two datasets and stop / warn the user
@@ -46,7 +47,9 @@ compareRows = function(table1, table2, commonKey, testColumn, testType, testTole
 }
 
 
-#'compareDimensions
+#' compareDimensions
+#'
+#' CompareDimensions description
 #'
 #' @param table1 First table to compare
 #' @param table2 Second table to compare
@@ -56,10 +59,12 @@ compareRows = function(table1, table2, commonKey, testColumn, testType, testTole
 #' @param testTolerance A single value  or vector giving the tolerance to be used to assess whether a test 'passes' or not. If a single value is given this will be used for all columns to be tested.
 #'
 #' @seealso compareRows Does a row by row comparison with no pre-aggregation of the data
+#'
+#' @export
 compareDimensions = function(table1, table2, commonColumns, columnsToTest, columnAggregations, tolerance){
 
   #Prepare dataset by aggregating each to a common level of detail
-  aggregatedColumnNames = expand.grid(colunsToTest, names(columnAggregations)) %>% unite(., 'out', sep = '_') %>% pull(out)
+  aggregatedColumnNames = expand.grid(columnsToTest, names(columnAggregations)) %>% unite(., 'out', sep = '_') %>% pull(out)
 
   table1.agg = table1 %>% group_by_at(commoncolumns, add = F) %>% summarise_at(columntsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_orig'))
   table2.agg = table2 %>% group_by_at(commoncolumns, add = F) %>% summarise_at(columntsToTest, columnAggregations) %>% rename_at( aggregatedColumnNames, ~patste0( ., '_new'))

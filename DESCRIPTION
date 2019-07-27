@@ -1,7 +1,7 @@
 Package: dataCheckR
 Type: Package
 Title: Functions And Routines For Comparing And Checking Datasets
-Version: 0.1.0
+Version: 0.1.1
 Author: Toby Monk
 Maintainer: Toby Monk <toby.monk@teamgoldflame.com>
 Description: Numerous helper functions which are helpful when comparing two or more datasets or when performing checks on the dataset. 

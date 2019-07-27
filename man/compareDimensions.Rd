@@ -21,7 +21,7 @@ compareDimensions(table1, table2, commonColumns, columnsToTest,
 \item{testTolerance}{A single value  or vector giving the tolerance to be used to assess whether a test 'passes' or not. If a single value is given this will be used for all columns to be tested.}
 }
 \description{
-compareDimensions
+CompareDimensions description
 }
 \seealso{
 compareRows Does a row by row comparison with no pre-aggregation of the data
