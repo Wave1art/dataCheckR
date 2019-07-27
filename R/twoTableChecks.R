@@ -105,19 +105,23 @@ compareDimensions = function(table1, table2, commonColumns, columnsToTest, colum
       summary.failed = c(summary.failed, i)
     }
 
-    #return output objects
-    return( list(
-      summary = paste0('Comparison of to tables to ensure consistency across common DIMENSIONS',
-                       '\nOverall status of tests: ', if(length(summary.failed >= 1 )){'Failed'} else{'Passed'},
-                       '\n\nDimensions compared: ', commonColumns,
-                       '\nFields tested: ', columnsToTest
-                       ),
-      summary.passed = summary.passed,
-      summary.failed = summary.failed,
-      df.compare = df.compare
-    )
-    )
   }
 
+  #print summary for the user working in interactive mode
+  message(paste0('Comparison of to tables to ensure consistency across common DIMENSIONS',
+                 '\nOverall status of tests: ', if(length(summary.failed >= 1 )){'Failed'} else{'Passed'},
+                 '\n\nDimensions compared: ', commonColumns,
+                 '\nFields tested: ', columnsToTest,
+                 '\n\nThe following fields failed: ', summary.failed
+  ))
 
-  }
+  #Return output objects
+  return( list(
+    summary = if(length(summary.failed >= 1 )){F} else{T},
+    summary.passed = summary.passed,
+    summary.failed = summary.failed,
+    df.compare = df.compare
+  )
+  )
+
+}
